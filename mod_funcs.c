@@ -12,7 +12,7 @@ int print_char(va_list argptr)
 char character;
 
 character = va_arg(argptr, int);
-f_putchar(character);
+_putchar(character);
 return (1);
 }
 
@@ -36,7 +36,7 @@ str = "(null)";
 index = 0;
 while (str[index])
 {
-f_putchar(str[index]);
+_putchar(str[index]);
 index++;
 }
 return (index);
@@ -59,7 +59,7 @@ num = n;
 
 if (last < 0)
 {
-f_putchar('-');
+_putchar('-');
 num = -num;
 n = -n;
 last = -last;
@@ -76,13 +76,13 @@ num = n;
 while (aux > 0)
 {
 num_d = num / aux;
-f_putchar(num_d + '0');
+_putchar(num_d + '0');
 num = num - (num_d *aux);
 aux = aux / 10;
 index++;
 }
 }
-f_putchar(last + '0');
+_putchar(last + '0');
 return (index);
 }
 
@@ -128,7 +128,7 @@ str[i] = c[i];
 }
 for (i = 0; str[i] != '\0'; i++)
 {
-f_putchar(str[i]);
+_putchar(str[i]);
 }
 free(str);
 return (i);
