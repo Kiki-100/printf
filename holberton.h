@@ -29,6 +29,6 @@ int print_string(va_list argptr);
 int print_rot13(va_list argptr);
 
 /* _putchar.c prototype */
-int f_putchar(char c);
+int _putchar(char c);
 
 #endif
