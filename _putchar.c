@@ -15,7 +15,7 @@
  * Last parameter is the number of bytes to write. We have one character
  * we want to write that is 1 byte so we put a 1 as the parameter
  */
-int f_putchar(char c)
+int _putchar(char c)
 {
 return (write(1, &c, 1));
 }
