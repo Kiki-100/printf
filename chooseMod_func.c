@@ -35,17 +35,17 @@ arg_len++;
 }
 if (arg_len == 4)
 {
-ret += f_putchar(fmt[index]);
+ret += _putchar(fmt[index]);
 }
 }
 else if (fmt[index] == '%' && fmt[index + 1] == '%')
 {
-ret += f_putchar('%');
+ret += _putchar('%');
 index++;
 }
 else
 {
-ret += f_putchar(fmt[index]);
+ret += _putchar(fmt[index]);
 }
 index++;
 }
