@@ -9,11 +9,11 @@
  */
 int print_char(va_list argptr)
 {
-  char character;
+char character;
 
-  character = va_arg(argptr, int);
-  f_putchar(character);
-  return (1);
+character = va_arg(argptr, int);
+f_putchar(character);
+return (1);
 }
 
 /**
@@ -23,23 +23,23 @@ int print_char(va_list argptr)
  */
 int print_string(va_list argptr)
 {
-  char *str;
-  unsigned int index;
+char *str;
+unsigned int index;
 
-  str = va_arg(argptr, char*);
+str = va_arg(argptr, char*);
 
-  if (str == NULL)
-    {
-      str = "(null)";
-    }
+if (str == NULL)
+{
+str = "(null)";
+}
 
-  index = 0;
-  while (str[index])
-    {
-      f_putchar(str[index]);
-      index++;
-    }
-  return (index);
+index = 0;
+while (str[index])
+{
+f_putchar(str[index]);
+index++;
+}
+return (index);
 }
 
 /**
@@ -49,41 +49,41 @@ int print_string(va_list argptr)
  */
 int print_digit(va_list argptr)
 {
-  int num, num_d;
-  int n = va_arg(argptr, int);
-  int index = 1, aux = 1;
-  int last = n % 10;
+int num, num_d;
+int n = va_arg(argptr, int);
+int index = 1, aux = 1;
+int last = n % 10;
 
-  n = n / 10;
-  num = n;
+n = n / 10;
+num = n;
 
-  if (last < 0)
-    {
-      f_putchar('-');
-      num = -num;
-      n = -n;
-      last = -last;
-      index++;
-    }
-  if (num > 0)
-    {
-      while (num / 10 != 0)
-	{
-	  aux = aux * 10;
-	  num = num / 10;
-	}
-      num = n;
-      while (aux > 0)
-	{
-	  num_d = num / aux;
-	  f_putchar(num_d + '0');
-	  num = num - (num_d * aux);
-	  aux = aux / 10;
-	  index++;
-	}
-    }
-  f_putchar(last + '0');
-  return (index);
+if (last < 0)
+{
+f_putchar('-');
+num = -num;
+n = -n;
+last = -last;
+index++;
+}
+if (num > 0)
+{
+while (num / 10 != 0)
+{
+aux = aux * 10;
+num = num / 10;
+}
+num = n;
+while (aux > 0)
+{
+num_d = num / aux;
+f_putchar(num_d + '0');
+num = num - (num_d *aux);
+aux = aux / 10;
+index++;
+}
+}
+f_putchar(last + '0');
+return (index);
 }
 
 /**
@@ -94,42 +94,42 @@ int print_digit(va_list argptr)
 
 int print_rot13(va_list argptr)
 {
-  int i;
-  int j;
+int i;
+int j;
 
-  char *input = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-  char *output = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
-  char *c, *str;
+char *input = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+char *output = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+char *c, *str;
 
-  c = va_arg(argptr, char*);
-  if (c == NULL)
-    {
-      return (0);
-    }
-  str = malloc(1024); /* one kilobyte */
-  if (str == NULL)
-    {
-      return (-1);
-    }
-  for (i = 0; c[i] != '\0'; i++)
-    {
-      for (j = 0; j < 51; j++)
-	{
-	  if (c[i] == input[j])
-	    {
-	      str[i] = output[j];
-	      break;
-	    }
-	  else
-	    {
-	      str[i] = c[i];
-	    }
-	}
-    }
-  for (i = 0; str[i] != '\0'; i++)
-    {
-      f_putchar(str[i]);
-    }
-  free(str);
-  return (i);
+c = va_arg(argptr, char*);
+if (c == NULL)
+{
+return (0);
+}
+str = malloc(1024); /* one kilobyte*/
+if (str == NULL)
+{
+return (-1);
+}
+for (i = 0; c[i] != '\0'; i++)
+{
+for (j = 0; j < 51; j++)
+{
+if (c[i] == input[j])
+{
+str[i] = output[j];
+break;
+}
+else
+{
+str[i] = c[i];
+}
+}
+}
+for (i = 0; str[i] != '\0'; i++)
+{
+f_putchar(str[i]);
+}
+free(str);
+return (i);
 }
