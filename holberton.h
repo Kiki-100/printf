@@ -20,10 +20,11 @@ int (*func_mod)(va_list argptr);
 
 /* printf.c prototypes */
 int _printf(const char *format, ...);
-int print_modifiers(const char *format, va_list argptr, mod_t *fmt_list);
+int print_modifiers(const char *format, mod_t f_list[], va_list argptr);
 
 /* specifier_funcs.c prototypes */
 int print_char(va_list argptr);
+int print_percent(va_list argptr);
 int print_digit(va_list argptr);
 int print_string(va_list argptr);
 int print_rot13(va_list argptr);
