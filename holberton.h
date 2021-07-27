@@ -22,7 +22,7 @@ typedef struct modifiers
 int _printf(const char *format, ...);
 int print_modifiers(const char *format, va_list argptr, mod_t *fmt_list);
 
-/* specifier_funcs.c prototypes */
+/* mod_funcs.c prototypes */
 int print_char(va_list argptr);
 int print_digit(va_list argptr);
 int print_string(va_list argptr);
