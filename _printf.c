@@ -1,50 +1,36 @@
+#include <stdlib.h>
+#include <stdarg.h>
 #include "holberton.h"
 
 /**
- * _printf - a function that produces output according to a format
- *
- * @format: a pointer to the format string
- *
- * Return: on success, returns the number of characters printed
+ * _printf - function that prints anything
+ * @format: list of types of arguments passed to the function
+ * @...: number of arguments
+ * Return: modifiers
  */
 int _printf(const char *format, ...)
 {
-int sum = 0;
-va_list ap;
-char *p, *start;
-params_t params = PARAMS_INIT;
+va_list args;
+int mods;
 
-va_start(ap, format);
+mod_t  fmt_list[] = {
+{"c", print_char},
+{"i", print_digit},
+{"d", print_digit},
+{"s", print_string},
+{"R", print_rot13},
+{NULL, NULL}
+};
 
-if (!format || (format[0] == '%' && !format[1]))
+va_start(args, format);
+
+if (format == NULL)
+{
 return (-1);
-if (format[0] == '%' && format[1] == ' ' && !format[2])
-return (-1);
-for (p = (char *)format; *p; p++)
-{
-init_params(&params, ap);
-if (*p != '%')
-{
-sum += _putchar(*p);
-continue;
 }
-start = p;
-p++;
-while (get_flag(p, &params)) /* while char at p is flag char */
-{
-p++; /* next char */
-}
-p = get_width(p, &params, ap);
-p = get_precision(p, &params, ap);
-if (get_modifier(p, &params))
-p++;
-if (!get_specifier(p))
-sum += print_from_to(start, p,
-params.l_modifier || params.h_modifier ? p - 1 : 0);
-else
-sum += get_print_func(p, ap, &params);
-}
-_putchar(BUF_FLUSH);
-va_end(ap);
-return (sum);
+
+mods = print_modifiers(format, args, fmt_list);
+
+va_end(args);
+return (mods);
 }
