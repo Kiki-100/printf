@@ -27,10 +27,6 @@ int print_modifiers(const char *format, va_list argptr, mod_t *fmt_list);
 int print_char(va_list argptr);
 int print_digit(va_list argptr);
 int print_string(va_list argptr);
-int print_u(va_list argptr);
-int print_o(va_list argptr);
-int print_x(va_list argptr);
-int print_X(va_list argptr);
 int print_rot13(va_list argptr);
 /*Print unsigned int*/
 

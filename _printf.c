@@ -14,10 +14,6 @@ mod_t  fmt_list[] = {
 {"i", print_digit},
 {"d", print_digit},
 {"s", print_string},
-{"u", print_u},
-{"o", print_o},
-{"x", print_x},
-{"s", print_X},
 {"R", print_rot13},
 {NULL, NULL}
 };
