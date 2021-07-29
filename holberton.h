@@ -28,8 +28,8 @@ int print_char(va_list argptr);
 int print_digit(va_list argptr);
 int print_string(va_list argptr);
 int print_rot13(va_list argptr);
-
 /*Print unsigned int*/
+
 /* int print_unsigned(va_list argptr, *func_mod);*/
 
 /* _putchar.c prototype */
