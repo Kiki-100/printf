@@ -15,8 +15,8 @@
  */
 typedef struct modifiers
 {
-  char *mod;
-  int (*func_mod)(va_list argptr);
+char *mod;
+int (*func_mod)(va_list argptr);
 } mod_t;
 
 /* _printf.c prototypes */
