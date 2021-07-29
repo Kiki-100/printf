@@ -10,7 +10,7 @@ static int (*check_specifier(const char *format))(va_list)
 {
 unsigned int i;
 /*w[] holds the array of the specifiers*/
-mod_t w[] = {
+print_mod w[] = {
 {"cha", print_char},
 {"str", print_string},
 {"digit", print_digit},

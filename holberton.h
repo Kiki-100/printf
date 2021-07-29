@@ -8,16 +8,15 @@
 #include <limits.h>
 
 /**
- * struct modifiers - Defines a specifier to data types
- * @mod: type of data type
- * @func_mod: pointer to function that prints data types
- * according to their notation
+ * struct print - structure for printing various types
+ * @t: type to print
+ * @f: function to print
  */
-typedef struct modifiers
+typedef struct print
 {
-char *mod;
-int (*func_mod)(va_list);
-} mod_t;
+	char *mod;
+	int (*func_mod)(va_list);
+} print_mod;
 
 /* _printf.c prototypes */
 int _printf(const char *format, ...);
