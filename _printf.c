@@ -9,10 +9,6 @@ int _printf(const char *format, ...)
 va_list args;
 int mods;
 
-if (format == NULL)
-{
-return (-1);
-}
 va_start(args, format);
 int (*func_mod)(va_list);
 
@@ -25,6 +21,10 @@ mod_t  fmt_list[] = {
 {NULL, NULL}
 };
 
+if (format == NULL)
+{
+return (-1);
+} 
 mods = print_modifiers(format, args, fmt_list);
 va_end(args);
 return (mods);
