@@ -23,7 +23,6 @@ mod_t  fmt_list[] = {
 };
 
 va_start(args, format);
-
 if (format == NULL)
 {
 return (-1);
