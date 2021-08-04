@@ -18,10 +18,6 @@ mod_t  fmt_list[] = {
 {NULL, NULL}
 };
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 80b745714918ed07957c33eb895b0e69e6d15c79
 va_start(args, format);
 if (format == NULL)
 {
