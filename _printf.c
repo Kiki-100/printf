@@ -23,7 +23,6 @@ if (format == NULL)
 {
 return (-1);
 } 
-
 mods = print_modifiers(format, args, fmt_list);
 
 va_end(args);
