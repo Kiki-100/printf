@@ -1,8 +1,12 @@
+#include <stdlib.h>
+#include <stdarg.h>
 #include "holberton.h"
+
 /**
- * _printf - receives all necessary arguments
- * @format: String containing all arguments
- * Return: number of characters printed
+ * _printf - function that prints anything
+ * @format: list of types of arguments passed to the function
+ * @...: number of arguments
+ * Return: modifiers
  */
 int _printf(const char *format, ...)
 {
@@ -19,10 +23,12 @@ mod_t  fmt_list[] = {
 };
 
 va_start(args, format);
+
 if (format == NULL)
 {
 return (-1);
-} 
+}
+
 mods = print_modifiers(format, args, fmt_list);
 
 va_end(args);
